@@ -58,6 +58,12 @@
     </nav>
 
     <h1 class="tit">Carrito de compras</h1>
+
+    <p class="totpagarCar"><i class="fas fa-shopping-bag shopping-bag-icon"></i>
+        El total a pagar es $<samp id="totalPagar">0</samp></p>
+   
+
+
     <table>
         <tbody class="cart-section">
             <!-- Aquí se insertarán las filas de productos del carrito -->
@@ -66,25 +72,33 @@
 
 
 
+    <form class="my-form" id="checkout-form">
+        <div class="form-group">
+          <label for="nombre" class="my-label">Nombre:</label>
+          <input type="text" id="nombre" class="my-input" required>
+        </div>
+      
+        <div class="form-group">
+          <label for="apellido" class="my-label">Apellido:</label>
+          <input type="text" id="apellido" class="my-input" required>
+        </div>
+      
+        <div class="form-group">
+          <label for="telefono" class="my-label">Teléfono:</label>
+          <input type="text" id="telefono" class="my-input" required>
+        </div>
+      
+        <div class="form-group">
+          <label for="ubicacion" class="my-label">Descripción de la Ubicación:</label>
+          <textarea id="ubicacion" class="my-input" required></textarea>
+        </div>
+      
+        <div class="form-group">
+            <button id="finalizar-pago" type="submit">Finalizar Pago</button>
+        </div>
+      </form>
+      
 
-<!-- 
-    <form class="bloque" id="checkout-form">
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" required>
-    
-        <label for="apellido">Apellido:</label>
-        <input type="text" id="apellido" required>
-    
-        <label for="telefono">Teléfono:</label>
-        <input type="text" id="telefono" required>
-    
-        <label for="ubicacion">Descripción de la Ubicación:</label>
-        <textarea id="ubicacion" required></textarea>
-    
-        <button id="finalizar-pago" type="submit">Finalizar Pago</button>
-    </form>
-    
- -->
 
 
       

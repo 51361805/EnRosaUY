@@ -471,52 +471,53 @@ button:hover {
 
 
 
-  .number-input .decrement {
+.number-input .decrement {
     background-color: red;
     color: white;
     padding: 5px 20px;
-  }
+}
 
-  .number-input .increment {
+.number-input .increment {
     background-color: green;
     color: white;
     padding: 5px 20px;
-  }
+}
 
-  .numbeaumenta{
+.numbeaumenta {
     width: 50px;
-  }
+}
 
 
-  .my-swal-container {
+.my-swal-container {
     background-color: #ff5c8a;
     color: #333;
     border-radius: 5px;
     padding: 10px;
-  }
-  
-  .my-swal-title {
+}
+
+.my-swal-title {
     font-size: 18px;
     font-weight: bold;
     color: #ff5c8a;
-  }
-  
+}
 
-  
-  @media (max-width: 550px) {
-  .BuscarBoton{
-    margin-bottom: 12px;
-  }
 
-  .justi{
-    display: flex;
-    
-  }
-  .buscadorBarra{
-    max-width: 290px !important;
-  }
 
- 
+@media (max-width: 550px) {
+    .BuscarBoton {
+        margin-bottom: 12px;
+    }
+
+    .justi {
+        display: flex;
+
+    }
+
+    .buscadorBarra {
+        max-width: 290px !important;
+    }
+
+
 }
 
 
@@ -540,14 +541,14 @@ button:hover {
         padding: 5px 10px;
     }
 
- 
+
 }
 
 
 
 .logo-img {
-   
-    
+
+
     top: 10px;
     right: 15px;
     max-width: 50px;
@@ -556,29 +557,33 @@ button:hover {
 
 body {
     overflow-x: hidden;
-  }
-  
+}
 
-  .lgobarra{
+
+.lgobarra {
     max-width: 150px;
-  }
+}
 
 
-  .carousel {
-    position: relative; /* Agregar posición absoluta */
+.carousel {
+    position: relative;
+    /* Agregar posición absoluta */
     top: 0;
     left: 0;
-    z-index: 1; /* Asegurarse de que el carrusel esté debajo del menú */
-  }
+    z-index: 1;
+    /* Asegurarse de que el carrusel esté debajo del menú */
+}
 
 
 
 
-.tit{
+.tit {
     text-align: center;
 }
 
-.navTop{margin-top: 80px;}
+.navTop {
+    margin-top: 80px;
+}
 
 
 .clothing-item img {
@@ -594,15 +599,107 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000; /* Ajusta el valor del z-index según sea necesario */
-  }
-  
-  img {
+    z-index: 1000;
+    /* Ajusta el valor del z-index según sea necesario */
+}
+
+img {
     max-width: 100%;
     height: auto;
     display: block;
     margin: 0 auto;
     position: relative;
     z-index: 1;
+}
+
+
+.totpagarCar {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.totpagarCar samp {
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ff5c8a;
+    padding: 5px 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.totpagarCar i {
+    margin-right: 10px;
+}
+
+.totpagarCar {
+    text-align: center;
+  }
+  
+  .shopping-bag-icon {
+    color: #ff5c8a; /* Color rosado en código hexadecimal */
+    font-size: 24px; /* Tamaño de fuente más grande */
+  }
+
+  
+  .mi-formulario {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .mi-grupo-form {
+    margin-bottom: 20px;
+  }
+  
+
+  .my-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .form-group {
+    margin-bottom: 0;
+  }
+  
+  .my-label {
+    font-weight: bold;
+  }
+  
+  .my-input {
+    width: 100% !important;
+    height: 35px !important;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .my-button {
+    padding: 10px 20px;
+    background-color: #ff5c8a !important;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .my-button:hover {
+    background-color: #a51f45 !important;
+  }
+  
+  @media (max-width: 768px) {
+    .my-form {
+      max-width: 100%;
+      padding: 0 20px;
+    }
   }
   
