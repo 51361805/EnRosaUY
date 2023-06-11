@@ -1,3 +1,6 @@
+
+
+
 function obtenerCarritoDelLocalStorage() {
   const carritoString = localStorage.getItem("carrito");
   if (carritoString) {
@@ -6,6 +9,9 @@ function obtenerCarritoDelLocalStorage() {
     return [];
   }
 }
+
+
+
 function mostrarCarritoEnHTML() {
   const cartSection = document.querySelector(".cart-section");
   cartSection.innerHTML = "";
@@ -26,7 +32,7 @@ function mostrarCarritoEnHTML() {
           <td>
             <div class="number-input">
               <button class="decrement">-</button>
-              <input type="number" value="1" min="1">
+              <input  type="number" value="1" min="1">
               <button class="increment">+</button>
             </div>
           </td>
@@ -206,46 +212,6 @@ function actualizarBotonEliminar() {
 
 actualizarBotonEliminar();
 
-const mercadopago = require('mercadopago');
-
-mercadopago.configure({
-  access_token: 'TEST-62ce6c41-a664-49e8-a636-375d2034c9bd', // Reemplaza con tu access token de Mercado Pago
-});
-
-const crearPreferencia = async () => {
-  const preference = {
-    items: [
-      {
-        title: 'Producto 1',
-        unit_price: 10,
-        quantity: 1,
-      },
-      {
-        title: 'Producto 2',
-        unit_price: 20,
-        quantity: 2,
-      },
-    ],
-    back_urls: {
-      success: 'https://tusitio.com/pago-exitoso',
-      failure: 'https://tusitio.com/pago-fallido',
-      pending: 'https://tusitio.com/pago-pendiente',
-    },
-    auto_return: 'approved',
-  };
-
-  try {
-    const response = await mercadopago.preferences.create(preference);
-    const preferenceId = response.body.id;
-    const paymentLink = response.body.init_point;
-    console.log('Preference ID:', preferenceId);
-    console.log('Payment Link:', paymentLink);
-  } catch (error) {
-    console.error('Error:', error);
-  }
-};
-
-crearPreferencia();
 
 
 

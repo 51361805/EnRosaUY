@@ -192,6 +192,7 @@ navbar-toggler {
 
 body {
     font-family: Arial, sans-serif;
+    box-sizing: border-box;
 }
 
 h2 {
@@ -746,35 +747,10 @@ img {
     justify-content: center;
 }
 
-.pasante {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    overflow-x: scroll;
-}
 
 
 
 
-.product-container-wrapper {
-    overflow-x: scroll;
-}
-
-.product-container {
-    max-width: 150px;
-    text-align: center;
-    white-space: nowrap;
-    /* Evita el salto de línea */
-    display: inline-block;
-    /* Permite el desplazamiento horizontal */
-    margin-right: 10px;
-    /* Espacio entre los elementos del contenedor */
-    border: 1px solid #FF69B4;
-    margin: 15px;
-    border-radius: 5px;
-  
-    box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
-}
 
 .product-image {
     width: 100%;
@@ -782,14 +758,15 @@ img {
 }
 
 .title {
-    font-size: 18px;
-    margin-top: 10px;
-   
+    font-size: 15px;
+   margin: 10px;
+    text-align: center;
+
 }
 
 .price {
     font-size: 16px;
-    margin-top: 5px;
+    margin-top: 0;
     color: green;
 }
 
@@ -807,58 +784,88 @@ img {
 nav {
     display: flex;
     justify-content: center;
-    overflow-x: auto; /* Desplazamiento horizontal */
-  }
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+}
 
-  ul {
-    white-space: nowrap; /* Evita el salto de línea */
-    display: flex; /* Permite el desplazamiento horizontal */
+ul {
+    white-space: nowrap;
+    /* Evita el salto de línea */
+    display: flex;
+    /* Permite el desplazamiento horizontal */
     padding: 0;
     margin: 0;
     list-style: none;
-  }
+}
 
-  li {
-    margin-right: 10px; /* Espacio entre los elementos */
-  }
+li {
+    margin-right: 10px;
+    /* Espacio entre los elementos */
+}
 
-  .nav-link {
+.nav-link {
     text-decoration: none;
     color: #000;
     padding: 5px;
-  }
+}
 
-  @media screen and (max-width: 480px) {
+@media screen and (max-width: 480px) {
     ul {
-      flex-wrap: nowrap; /* Asegura que los elementos no se ajusten automáticamente */
+        flex-wrap: nowrap;
+        /* Asegura que los elementos no se ajusten automáticamente */
     }
 
     li {
-      flex: 0 0 auto; /* Permite que los elementos tengan su tamaño original */
+        flex: 0 0 auto;
+        /* Permite que los elementos tengan su tamaño original */
     }
-  }
-
-
-  nav::-webkit-scrollbar {
-    display: none; /* Oculta las barras de desplazamiento en navegadores webkit */
-  }
-  
-  nav {
-    scrollbar-width: none; /* Oculta las barras de desplazamiento en navegadores Firefox */
-  }
-  
-
+}
 
   
-  @media (max-width: 600px) {
-    .pasante::-webkit-scrollbar {
-      display: none; /* Oculta las barras de desplazamiento en navegadores webkit */
-    }
+
+nav::-webkit-scrollbar {
+    display: none;
+    /* Oculta las barras de desplazamiento en navegadores webkit */
+}
+
+nav {
+    scrollbar-width: none;
+    /* Oculta las barras de desplazamiento en navegadores Firefox */
+}
+
+
+.pasante {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.product-container {
+    max-width: 150px;
+    text-align: center;
+    /* Evita el salto de línea */
     
-    .pasante {
-      scrollbar-width: none; /* Oculta las barras de desplazamiento en navegadores Firefox */
-    }
-  }
-  
+    /* Permite el desplazamiento horizontal */
+    margin-right: 10px;
+    /* Espacio entre los elementos del contenedor */
+    border: 1px solid #FF69B4;
+    margin: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+}
 
+@media (max-width: 600px) {
+    .pasante::-webkit-scrollbar {
+        display: none;
+        /* Oculta las barras de desplazamiento en navegadores webkit */
+    }
+
+    .pasante {
+        scrollbar-width: none;
+        /* Oculta las barras de desplazamiento en navegadores Firefox */
+    }
+}
 
