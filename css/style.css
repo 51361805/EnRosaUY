@@ -639,67 +639,226 @@ img {
 
 .totpagarCar {
     text-align: center;
-  }
-  
-  .shopping-bag-icon {
-    color: #ff5c8a; /* Color rosado en código hexadecimal */
-    font-size: 24px; /* Tamaño de fuente más grande */
-  }
+}
 
-  
-  .mi-formulario {
+.shopping-bag-icon {
+    color: #ff5c8a;
+    /* Color rosado en código hexadecimal */
+    font-size: 24px;
+    /* Tamaño de fuente más grande */
+}
+
+
+.mi-formulario {
     display: flex;
     flex-direction: column;
     max-width: 500px;
     margin: 0 auto;
-  }
-  
-  .mi-grupo-form {
+}
+
+.mi-grupo-form {
     margin-bottom: 20px;
-  }
-  
+}
 
-  .my-form {
+
+.my-form {
     display: flex;
     flex-direction: column;
     max-width: 500px;
     margin: 0 auto;
-  }
-  
-  .form-group {
+}
+
+.form-group {
     margin-bottom: 0;
-  }
-  
-  .my-label {
+}
+
+.my-label {
     font-weight: bold;
-  }
-  
-  .my-input {
+}
+
+.my-input {
     width: 100% !important;
     height: 35px !important;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  }
-  
-  .my-button {
+}
+
+.my-button {
     padding: 10px 20px;
     background-color: #ff5c8a !important;
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-  }
-  
-  .my-button:hover {
+}
+
+.my-button:hover {
     background-color: #a51f45 !important;
+}
+
+@media (max-width: 768px) {
+    .my-form {
+        max-width: 100%;
+        padding: 0 20px;
+    }
+}
+
+
+.carousel-inner {
+    transition-duration: 0.2s !important;
+    /* Ajusta la duración según tus necesidades */
+}
+
+
+
+
+
+.product-image {
+    width: 100%;
+    height: auto;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.title {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.price {
+    font-size: 16px;
+
+    color: green;
+    margin-left: 15px;
+
+}
+
+.old-price {
+    font-size: 14px;
+    color: red;
+    text-decoration: line-through;
+}
+
+.antPrecio {
+    display: flex;
+    justify-content: center;
+}
+
+.pasante {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    overflow-x: scroll;
+}
+
+
+
+
+.product-container-wrapper {
+    overflow-x: scroll;
+}
+
+.product-container {
+    max-width: 150px;
+    text-align: center;
+    white-space: nowrap;
+    /* Evita el salto de línea */
+    display: inline-block;
+    /* Permite el desplazamiento horizontal */
+    margin-right: 10px;
+    /* Espacio entre los elementos del contenedor */
+    border: 1px solid #FF69B4;
+    margin: 15px;
+    border-radius: 5px;
+  
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+}
+
+.product-image {
+    width: 100%;
+    height: auto;
+}
+
+.title {
+    font-size: 18px;
+    margin-top: 10px;
+   
+}
+
+.price {
+    font-size: 16px;
+    margin-top: 5px;
+    color: green;
+}
+
+.old-price {
+    font-size: 14px;
+    color: red;
+    text-decoration: line-through;
+}
+
+
+
+
+
+
+nav {
+    display: flex;
+    justify-content: center;
+    overflow-x: auto; /* Desplazamiento horizontal */
+  }
+
+  ul {
+    white-space: nowrap; /* Evita el salto de línea */
+    display: flex; /* Permite el desplazamiento horizontal */
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  li {
+    margin-right: 10px; /* Espacio entre los elementos */
+  }
+
+  .nav-link {
+    text-decoration: none;
+    color: #000;
+    padding: 5px;
+  }
+
+  @media screen and (max-width: 480px) {
+    ul {
+      flex-wrap: nowrap; /* Asegura que los elementos no se ajusten automáticamente */
+    }
+
+    li {
+      flex: 0 0 auto; /* Permite que los elementos tengan su tamaño original */
+    }
+  }
+
+
+  nav::-webkit-scrollbar {
+    display: none; /* Oculta las barras de desplazamiento en navegadores webkit */
   }
   
-  @media (max-width: 768px) {
-    .my-form {
-      max-width: 100%;
-      padding: 0 20px;
+  nav {
+    scrollbar-width: none; /* Oculta las barras de desplazamiento en navegadores Firefox */
+  }
+  
+
+
+  
+  @media (max-width: 600px) {
+    .pasante::-webkit-scrollbar {
+      display: none; /* Oculta las barras de desplazamiento en navegadores webkit */
+    }
+    
+    .pasante {
+      scrollbar-width: none; /* Oculta las barras de desplazamiento en navegadores Firefox */
     }
   }
   
+
+

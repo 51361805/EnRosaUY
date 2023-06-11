@@ -600,7 +600,7 @@ function mostrarResultados(productos) {
         }).then((result) => {
             /* Leer más sobre cómo manejar el cierre a continuación */
             if (result.dismiss === Swal.DismissReason.timer) {
-                console.log('Se cerró automáticamente');
+                
             }
         });
 
@@ -614,10 +614,15 @@ function mostrarResultados(productos) {
                 <span>$${producto.precio}</span>
                 <button id="${producto.id}" class="buy-button">Comprar</button>
             </div>
+            
         `;
         resultadosBusqueda.appendChild(div);
-    });
+       
+    }); actualizarBotonesAgregar();
+    actualizarNumeroCarrito();
+   
 }
+
 
 
 searchButton.addEventListener('click', filtrarProductos);
