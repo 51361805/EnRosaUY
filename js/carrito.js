@@ -29,13 +29,7 @@ function mostrarCarritoEnHTML() {
           <td>
             <span class="product-price">$${producto.precio}</span>
           </td>
-          <td>
-            <div class="number-input">
-              <button class="decrement">-</button>
-              <input  type="number" value="1" min="1">
-              <button class="increment">+</button>
-            </div>
-          </td>
+         
           <td><button class="remove-button" data-id="${producto.id}">Eliminar compra</button></td>
         </tr>
       `;

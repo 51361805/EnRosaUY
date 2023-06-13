@@ -759,8 +759,9 @@ img {
 
 .title {
     font-size: 15px;
-   margin: 10px;
+    margin: 10px;
     text-align: center;
+
 
 }
 
@@ -822,7 +823,7 @@ li {
     }
 }
 
-  
+
 
 nav::-webkit-scrollbar {
     display: none;
@@ -844,10 +845,10 @@ nav {
 }
 
 .product-container {
-    max-width: 150px;
+    width: 150px;
     text-align: center;
     /* Evita el salto de línea */
-    
+
     /* Permite el desplazamiento horizontal */
     margin-right: 10px;
     /* Espacio entre los elementos del contenedor */
@@ -855,6 +856,7 @@ nav {
     margin: 15px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+
 }
 
 @media (max-width: 600px) {
@@ -869,3 +871,20 @@ nav {
     }
 }
 
+.antesAhora {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.inicio {
+
+    margin: 0;
+    margin-right: 30px;
+}
+
+
+.carousel-control-next, .carousel-control-prev {
+    opacity: 0;
+}
