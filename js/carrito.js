@@ -77,7 +77,7 @@ function eliminarProductoDelLocalStorage(productoId) {
 function asignarEventosEliminarProducto() {
   const removeButtons = document.querySelectorAll(".remove-button");
   removeButtons.forEach(button => {
-    button.addEventListener("click", function() {
+    button.addEventListener("click", function () {
       const productoId = button.dataset.id;
       eliminarProductoDelLocalStorage(productoId);
     });
@@ -93,7 +93,7 @@ mostrarCarritoEnHTML();
 function asignarEventosEliminarProducto() {
   const removeButtons = document.querySelectorAll(".remove-button");
   removeButtons.forEach(button => {
-    button.addEventListener("click", function() {
+    button.addEventListener("click", function () {
       const productoId = button.dataset.id;
       eliminarProductoDelLocalStorage(productoId);
     });
@@ -117,10 +117,10 @@ calcularTotalPagar();
 const totalPagarElement = document.getElementById("totalPagar");
 
 // Crear una instancia de MutationObserver con una función de callback
-const observer = new MutationObserver(function(mutationsList) {
+const observer = new MutationObserver(function (mutationsList) {
   for (let mutation of mutationsList) {
     if (mutation.type === "childList" && mutation.target === totalPagarElement) {
-     
+
     }
   }
 });
@@ -139,50 +139,15 @@ observer.observe(totalPagarElement, observerOptions);
 
 
 
-function actualizarBotonesIncrementoDecremento() {
-  const botonesDecremento = document.querySelectorAll(".decrement");
-  const botonesIncremento = document.querySelectorAll(".increment");
-
-  botonesDecremento.forEach(boton => {
-    boton.addEventListener("click", decrementarCantidad);
-  });
-
-  botonesIncremento.forEach(boton => {
-    boton.addEventListener("click", incrementarCantidad);
-  });
-}
-
-
-
-
-function decrementarCantidad(e) {
-  const inputCantidad = e.currentTarget.parentNode.querySelector("input");
-  let cantidad = parseInt(inputCantidad.value);
-
-  if (cantidad > 1) {
-    cantidad--;
-  }
-
-  inputCantidad.value = cantidad;
-}
 
 
 
 
 
-function incrementarCantidad(e) {
-  const inputCantidad = e.currentTarget.parentNode.querySelector("input");
-  let cantidad = parseInt(inputCantidad.value);
-
-  cantidad++;
-
-  inputCantidad.value = cantidad;
-}
 
 
 
 
-actualizarBotonesIncrementoDecremento();
 
 
 
@@ -208,6 +173,60 @@ actualizarBotonEliminar();
 
 
 
+document.getElementById("checkout-form").addEventListener("submit", function(event) {
+  event.preventDefault(); // Evita que el formulario se envíe automáticamente
+
+  // Obtener los valores de los campos del formulario
+  var cardNumber = document.getElementById("card-number").value;
+  var cardNumber1 = document.getElementById("card-number-1").value;
+  var cardNumber2 = document.getElementById("card-number-2").value;
+  var cardNumber3 = document.getElementById("card-number-3").value;
+  var cardHolder = document.getElementById("card-holder").value;
+  var cardExpirationMonth = document.getElementById("card-expiration-month").value;
+  var cardExpirationYear = document.getElementById("card-expiration-year").value;
+  var cardCCV = document.getElementById("card-ccv").value;
+  var nombre = document.getElementById("nombre").value;
+  var apellido = document.getElementById("apellido").value;
+  var telefono = document.getElementById("telefono").value;
+  var ubicacion = document.getElementById("ubicacion").value;
+
+  // Verificar si algún campo está vacío
+  if (
+    cardNumber === "" ||
+    cardNumber1 === "" ||
+    cardNumber2 === "" ||
+    cardNumber3 === "" ||
+    cardHolder === "" ||
+    cardExpirationMonth === "" ||
+    cardExpirationYear === "" ||
+    cardCCV === "" ||
+    nombre === "" ||
+    apellido === "" ||
+    telefono === "" ||
+    ubicacion === ""
+  ) {
+    // Campos incompletos, mostrar alerta
+    Swal.fire("Error", "Por favor, complete todos los campos antes de enviar el formulario.", "error");
+  } else {
+    // Campos completos, mostrar alerta de procesando pago
+    Swal.fire({
+      title: "Procesando pago",
+      html: "Realizando pago. Por favor, espere...",
+      timer: 4000,
+      timerProgressBar: true,
+      didOpen: () => {
+        Swal.showLoading();
+      },
+      willClose: () => {
+        // Se ejecuta cuando se cierra la alerta
+        finalizarPago();
+        
+        localStorage.clear();
+       
+      }
+    });
+  }
+});
 
 
 
@@ -219,12 +238,7 @@ actualizarBotonEliminar();
 
 
 
-
-
-
-
-
-
+// Si todos los campos están completos, ejecutar el código adicional
 const descripcionUbicacion = document.getElementById('ubicacion').value;
 const checkoutForm = document.getElementById("checkout-form");
 
@@ -246,7 +260,12 @@ checkoutForm.addEventListener("change", function (event) {
 
   // Luego puedes realizar otras acciones, como enviar los datos a un servidor, procesar el pago, etc.
   // Aquí solo se muestra un ejemplo básico de captura de datos.
+
 });
+
+
+
+
 function finalizarPago() {
   // Obtener los datos del carrito
   const cartItems = productosEnCarrito.map(producto => {
@@ -263,24 +282,123 @@ function finalizarPago() {
   const descripcionUbicacion = document.getElementById("ubicacion").value;
 
   // Crear el mensaje final con el nombre del cliente, los detalles del carrito y la descripción de la ubicación
-  const mensajeFinal = `¡Hola! Soy ${nombreCliente} y he realizado la siguiente compra:\n\n${cartDescription}\n\nDescripción de la Compra: ${descripcionUbicacion}\n\n.La Compra Fue Por Un valor Total De $ ${ totalPagarElement.textContent}`;
+  const mensajeFinal = `¡Hola! Soy ${nombreCliente} y he realizado la siguiente compra:\n\n${cartDescription}\n\nDescripción de la Compra: ${descripcionUbicacion}\n\n.La Compra Fue Por Un valor Total De $ ${totalPagarElement.textContent}`;
 
   // Generar el enlace de WhatsApp con el mensaje
   const whatsappLink = `https://api.whatsapp.com/send?phone=59892878389&text=${encodeURIComponent(mensajeFinal)}`;
 
   // Abrir el enlace de WhatsApp en una nueva pestaña
   window.open(whatsappLink);
-
-  
 }
-
 
 const finalizarPagoButton = document.getElementById("finalizar-pago");
 
-finalizarPagoButton.addEventListener("click", function (event) {
-  event.preventDefault(); // Evitar el envío automático del formulario
-  finalizarPago();
-});
 
- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const cardId = document.getElementById('cardId')
+const myForm = document.getElementById('checkout-form')
+const noneForm = document.querySelector('.NoneForm');
+if (productosEnCarrito.length === 0) {
+  cardId.classList.add('NoneForm')
+  myForm.classList.add('NoneForm');
+} else {
+  cardId.classList.remove('NoneForm')
+  myForm.classList.remove('NoneForm');
+}
+mostrarCarritoEnHTML();
+
+
+
+$(document).ready(function () {
+
+  $('.input-cart-number').on('keyup change', function () {
+    $t = $(this);
+
+    if ($t.val().length > 3) {
+      $t.next().focus();
+    }
+
+    var card_number = '';
+    $('.input-cart-number').each(function () {
+      card_number += $(this).val() + ' ';
+      if ($(this).val().length == 4) {
+        $(this).next().focus();
+      }
+    })
+
+    $('.credit-card-box .number').html(card_number);
+  });
+
+  $('#card-holder').on('keyup change', function () {
+    $t = $(this);
+    $('.credit-card-box .card-holder div').html($t.val());
+  });
+
+  $('#card-holder').on('keyup change', function () {
+    $t = $(this);
+    $('.credit-card-box .card-holder div').html($t.val());
+  });
+
+  $('#card-expiration-month, #card-expiration-year').change(function () {
+    m = $('#card-expiration-month option').index($('#card-expiration-month option:selected'));
+    m = (m < 10) ? '0' + m : m;
+    y = $('#card-expiration-year').val().substr(2, 2);
+    $('.card-expiration-date div').html(m + '/' + y);
+  })
+
+  $('#card-ccv').on('focus', function () {
+    $('.credit-card-box').addClass('hover');
+  }).on('blur', function () {
+    $('.credit-card-box').removeClass('hover');
+  }).on('keyup change', function () {
+    $('.ccv div').html($(this).val());
+  });
+
+
+  /*--------------------
+  CodePen Tile Preview
+  --------------------*/
+  setTimeout(function () {
+    $('#card-ccv').focus().delay(1000).queue(function () {
+      $(this).blur().dequeue();
+    });
+  }, 500);
+
+  function getCreditCardType(accountNumber) {
+    if (/^5[1-5]/.test(accountNumber)) {
+      result = 'mastercard';
+    } else if (/^4/.test(accountNumber)) {
+      result = 'visa';
+    } else if (/^(5018|5020|5038|6304|6759|676[1-3])/.test(accountNumber)) {
+      result = 'maestro';
+    } else {
+      result = 'unknown'
+    }
+    return result;
+  }
+
+  $('#card-number').change(function () {
+    console.log(getCreditCardType($(this).val()));
+  })
+
+
+});
 
